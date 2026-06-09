@@ -9,7 +9,6 @@
 
   /* macOS STYLE BLACK & ORANGE THEME */
   :root {
-    /* UPDATED: White and Orange Gradient Background */
     --bg-gradient: linear-gradient(135deg, #FFFFFF 0%, #FFF5ED 50%, #FFDAB9 100%);
     --bg2: rgba(255, 255, 255, 0.4);
     --bg3: rgba(255, 255, 255, 0.8);
@@ -25,16 +24,16 @@
   html { scroll-behavior: smooth; }
 
   body {
-    /* macOS NATIVE FONT STACK */
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: var(--bg-gradient);
     background-attachment: fixed;
     color: var(--text);
     line-height: 1.7;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased; /* Makes font crisp like macOS */
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
   /* NOISE TEXTURE */
   body::before {
     content: '';
@@ -45,34 +44,34 @@
     z-index: 0;
   }
 
-/* GRID-CARD OVERLAY NAV */
- nav {
-    position: fixed;
+  /* GRID-CARD OVERLAY NAV */
+  nav {
+    position: absolute;
     top: 0;
     width: 100%;
     z-index: 1000;
     display: flex;
     justify-content: center;
     padding: 1rem;
-    transition: background 0.3s ease; /* மென்மையாக மாறுவதற்கு */
-    background: transparent;         /* ஆரம்பத்தில் டிரான்ஸ்பரன்ட் */
+    transition: background 0.3s ease;
+    background: transparent;
     backdrop-filter: blur(0px);
-}
-
-  .nav-logo {
-    display: none; /* Logo hidden to focus on link grid */
   }
+
+  .nav-logo { display: none; }
 
   .nav-links {
     display: flex;
     gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .nav-links a {
     background: rgba(255, 255, 255, 0.6);
     padding: 0.6rem 1.2rem;
     border-radius: 12px;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--text);
@@ -96,6 +95,7 @@
     padding: 8rem 4rem 6rem;
     position: relative;
     overflow: hidden;
+    gap: 2rem;
   }
 
   .hero-bg-line {
@@ -106,29 +106,16 @@
     background: linear-gradient(to bottom, transparent, var(--border) 30%, var(--border) 70%, transparent);
   }
 
-  .hero-bg-circle {
+  .hero-bg-circle, .hero-bg-circle2 {
     position: absolute;
-    right: -200px;
     top: 50%;
     transform: translateY(-50%);
-    width: 700px;
-    height: 700px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 107, 0, 0.15); /* Updated to orange rgba */
-    opacity: 0.6;
+    border: 1px solid rgba(255, 107, 0, 0.15);
   }
 
-  .hero-bg-circle2 {
-    position: absolute;
-    right: -300px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 900px;
-    height: 900px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 107, 0, 0.1); /* Updated to orange rgba */
-    opacity: 0.3;
-  }
+  .hero-bg-circle { right: -200px; width: 700px; height: 700px; opacity: 0.6; }
+  .hero-bg-circle2 { right: -300px; width: 900px; height: 900px; border: 1px solid rgba(255, 107, 0, 0.1); opacity: 0.3; }
 
   .hero-content {
     position: relative;
@@ -143,7 +130,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--accent);
-    border: 1px solid rgba(255, 107, 0, 0.3); /* Updated to orange rgba */
+    border: 1px solid rgba(255, 107, 0, 0.3);
     background: rgba(255,255,255,0.5);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -154,7 +141,7 @@
   }
 
   .hero-name {
-    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-size: clamp(3rem, 7vw, 6rem);
     font-weight: 800;
     line-height: 1.05;
     letter-spacing: -0.04em;
@@ -190,12 +177,10 @@
     animation: fadeUp 0.9s 0.4s ease both;
   }
 
-  .btn-primary {
+  .btn-primary, .btn-secondary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--accent);
-    color: #ffffff;
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.05em;
@@ -203,31 +188,28 @@
     border-radius: 12px;
     text-decoration: none;
     transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3); /* Updated to orange rgba */
   }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+  }
+
   .btn-primary:hover {
     background: var(--accent2);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(255, 107, 0, 0.4); /* Updated to orange rgba */
+    box-shadow: 0 6px 16px rgba(255, 107, 0, 0.4);
   }
 
   .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     color: var(--text);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    padding: 0.9rem 2rem;
-    border-radius: 12px;
     border: 1px solid rgba(0,0,0,0.1);
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
   }
+
   .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.8);
     transform: translateY(-2px);
@@ -239,7 +221,7 @@
     z-index: 1;
     width: 420px;
     height: 420px;
-    margin-right: 3rem;
+    flex-shrink: 0;
     animation: fadeIn 1s 0.5s ease both;
     transition: transform 0.4s ease;
   }
@@ -274,26 +256,18 @@
     box-shadow: 0 30px 60px rgba(0,0,0,0.15);
   }
 
-  /* RESPONSIVE SIZES */
-  @media (max-width: 1024px) {
-    .hero-image-wrapper { margin-right: 1rem; width: 320px; height: 320px; }
-  }
-
-  @media (max-width: 768px) {
-    .hero-image-wrapper { margin-top: 4rem; margin-right: 0; width: 280px; height: 280px; }
-  }
-
   /* SECTIONS */
   section {
     padding: 6rem 4rem;
     position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 
   .section-header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
     margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: flex-start;
   }
 
   .section-num {
@@ -306,15 +280,31 @@
 
   .section-title {
     font-size: 2.2rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--text);
-    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding-bottom: 0.8rem;
   }
 
-  .section-line {
-    flex: 1;
+  .section-divider {
     height: 1px;
     background: var(--border);
+    margin: 0 4rem;
+    max-width: 1320px;
+  }
+
+ /* Small orange line below the text */
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 4px;
   }
 
   /* GLASSMORPHISM CARDS */
@@ -330,59 +320,47 @@
   /* SKILLS */
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
   }
 
-  .skill-card {
-    padding: 2rem;
+  .skill-item {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 16px;
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .skill-card:hover {
+
+  .skill-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 32px rgba(0,0,0,0.08);
   }
 
-  .skill-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 10px;
-    background: rgba(255, 107, 0, 0.1); /* Updated to orange */
-    color: var(--accent);
-    border: 1px solid rgba(255, 107, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.2rem;
-    font-size: 1.3rem;
-  }
-
-  .skill-name {
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--text);
+  .skill-item img {
+    width: 60px;
+    height: 60px;
     margin-bottom: 1rem;
-  }
-
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-
-  .tag {
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding: 0.4rem 0.9rem;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0,0,0,0.05);
     border-radius: 8px;
-    color: var(--muted);
-    transition: color 0.2s, border-color 0.2s;
   }
-  .tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  .skill-item h3 {
+    font-size: 1.1rem; /* Slightly smaller heading */
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+  }
+
+  .skill-item p {
+   font-size: 0.85rem; /* Font size reduced slightly */
+    color: var(--muted);
+  }
 
   /* PROJECTS */
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
   }
 
@@ -427,7 +405,7 @@
     font-weight: 600;
     padding: 0.3rem 0.8rem;
     border-radius: 8px;
-    background: rgba(255, 107, 0, 0.1); /* Updated to orange */
+    background: rgba(255, 107, 0, 0.1);
     color: var(--accent);
   }
 
@@ -440,9 +418,8 @@
     margin-bottom: 2rem;
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .exp-block:last-child {
-    margin-bottom: 0;
-  }
+
+  .exp-block:last-child { margin-bottom: 0; }
 
   .exp-block:hover {
     transform: translateY(-4px);
@@ -479,10 +456,7 @@
     line-height: 1.6;
   }
 
-  .exp-bullets {
-    list-style: none;
-    margin-top: 1rem;
-  }
+  .exp-bullets { list-style: none; margin-top: 1rem; }
 
   .exp-bullets li {
     font-size: 0.95rem;
@@ -513,6 +487,7 @@
     padding: 2rem;
     transition: transform 0.2s, box-shadow 0.2s;
   }
+
   .edu-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
 
   .edu-year {
@@ -531,11 +506,7 @@
     line-height: 1.4;
   }
 
-  .edu-school {
-    font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
+  .edu-school { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
 
   .edu-grade {
     display: inline-block;
@@ -543,7 +514,7 @@
     font-size: 0.8rem;
     font-weight: 600;
     padding: 0.3rem 0.8rem;
-    background: rgba(255, 107, 0, 0.1); /* Updated to orange */
+    background: rgba(255, 107, 0, 0.1);
     border-radius: 8px;
     color: var(--accent);
   }
@@ -551,7 +522,7 @@
   /* CERTIFICATIONS */
   .cert-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
   }
 
@@ -573,7 +544,7 @@
     height: 48px;
     min-width: 48px;
     border-radius: 12px;
-    background: rgba(255, 107, 0, 0.1); /* Updated to orange */
+    background: rgba(255, 107, 0, 0.1);
     border: 1px solid rgba(255, 107, 0, 0.25);
     color: var(--accent);
     display: flex;
@@ -590,37 +561,34 @@
     margin-bottom: 0.4rem;
   }
 
-  .cert-org {
-    font-size: 0.95rem;
-    color: var(--muted);
-  }
+  .cert-org { font-size: 0.95rem; color: var(--muted); }
 
-  /* LANGUAGES */
-  .lang-grid {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-
-  .lang-card {
-    padding: 1.25rem 2rem;
-    display: flex;
+.btn-cert {
+    display: inline-flex;
     align-items: center;
-    gap: 1rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .lang-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
-
-  .lang-name {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    color: var(--text);
-  }
-  .lang-level {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
     color: var(--accent);
+    text-decoration: none;
+    margin-top: 1rem;
+    position: relative;
+    align-self: flex-start;
+    padding-bottom: 2px;
+  }
+
+  .btn-cert::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  .btn-cert:hover::after {
+    width: 100%;
   }
 
   /* CONTACT */
@@ -628,11 +596,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .contact-heading {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 800;
     color: var(--text);
     line-height: 1.1;
@@ -652,13 +620,14 @@
     padding: 1rem 1.25rem;
     transition: transform 0.2s, box-shadow 0.2s;
   }
+
   .contact-link:hover { transform: translateX(4px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
 
   .contact-link-icon {
     width: 40px;
     height: 40px;
     border-radius: 10px;
-    background: rgba(255, 107, 0, 0.1); /* Updated to orange */
+    background: rgba(255, 107, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -670,7 +639,7 @@
   .contact-link-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 0.15rem; font-weight: 600;}
   .contact-link-value { font-size: 0.95rem; color: var(--text); font-weight: 600;}
 
-  /* CONTACT FORM STYLES */
+  /* CONTACT FORM */
   .contact-form {
     padding: 2.5rem;
     display: flex;
@@ -678,11 +647,7 @@
     gap: 1.5rem;
   }
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
 
   .form-label {
     font-size: 0.8rem;
@@ -704,17 +669,12 @@
   .form-input:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2); /* Updated to orange */
+    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
   }
 
-  .form-input::placeholder {
-    color: rgba(74, 74, 78, 0.6);
-  }
+  .form-input::placeholder { color: rgba(74, 74, 78, 0.6); }
 
-  textarea.form-input {
-    resize: vertical;
-    min-height: 100px;
-  }
+  textarea.form-input { resize: vertical; min-height: 120px; }
 
   .form-submit {
     margin-top: 0.5rem;
@@ -723,30 +683,57 @@
     border: none;
   }
 
-  /* CENTERED AND COMPACT FOOTER */
+  /* FOOTER */
   footer {
-    padding: 1.5rem 4rem;
+    padding: 2rem;
     border-top: 1px solid var(--border);
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Ensures vertical centering */
-    align-items: center;     /* Ensures horizontal centering */
-    gap: 0.2rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
     text-align: center;
-    width: 100%;             /* Ensures full width for centering */
   }
 
-  footer span {
-    font-size: 0.75rem;
-    color: var(--muted);
+
+
+  footer span { font-size: 0.75rem; color: var(--muted); }
+  /* BACK TO TOP BUTTON */
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--accent);
+    color: #ffffff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+    z-index: 1000; /* Keeps it above everything else */
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .footer-logo {
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--accent);
-    letter-spacing: -0.02em;
-    margin: 0.2rem 0;
+  .back-to-top:hover {
+    background: var(--accent2);
+    transform: translateY(-5px); /* Moves up slightly on hover */
+    box-shadow: 0 6px 16px rgba(255, 107, 0, 0.4);
+  }
+
+  /* Mobile screen adjustment */
+  @media (max-width: 768px) {
+    .back-to-top {
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+    }
   }
 
   /* ANIMATIONS */
@@ -754,46 +741,84 @@
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
   }
 
-  /* DIVIDER */
-  .section-divider {
-    height: 1px;
-    background: var(--border);
-    margin: 0 4rem;
+  /* =========================================
+     RESPONSIVE MEDIA QUERIES (MOBILE / TABLET)
+     ========================================= */
+
+  @media (max-width: 1024px) {
+    section { padding: 5rem 3rem; }
+    .hero { padding: 8rem 3rem 5rem; }
+    .hero-image-wrapper { width: 340px; height: 340px; }
+    .contact-wrap { gap: 2rem; }
+    .section-divider { margin: 0 3rem; }
   }
-
-
 
   @media (max-width: 768px) {
-  .hero {
-    padding: 6rem 1.5rem 4rem; /* Reduce padding for more content space */
-  }
+    /* Main Layout Adjustments */
+    section { padding: 4rem 1.5rem; }
+    .section-divider { margin: 0 1.5rem; }
 
-  .hero-name {
-    font-size: clamp(2.5rem, 10vw, 4rem); /* Responsive font size */
-    margin-bottom: 0.5rem;
-  }
-
-  .hero-content {
-    width: 100%;
-  }
-}
-
-    .hero-image-wrapper {
-      margin-top: 4rem;
-      margin-right: 0;
-      width: 100%;
-      max-width: 320px;
+    /* Hero Section - Stack Vertically */
+    .hero {
+      flex-direction: column;
+      text-align: center;
+      padding: 7rem 1.5rem 3rem;
+      gap: 3rem;
     }
 
-    .exp-block { grid-template-columns: 1fr; gap: 1rem; }
-    .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
-    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; }
-    .section-divider { margin: 0 1.5rem; }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    .hero-ctas { justify-content: center; }
+
+    .hero-image-wrapper {
+      width: 280px;
+      height: 280px;
+      margin: 0 auto;
+    }
+
+    /* Experience Grid Adjustment */
+    .exp-block {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    /* Contact Section - Single Column */
+    .contact-wrap {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .contact-form { padding: 2rem 1.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-image-wrapper {
+      width: 240px;
+      height: 240px;
+    }
+
+    .nav-links a {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.7rem;
+    }
+
+    .btn-primary, .btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+  }
 </style>
 </head>
 <body>
@@ -810,29 +835,28 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="Home" class="hero">
   <div class="hero-bg-line"></div>
   <div class="hero-bg-circle"></div>
   <div class="hero-bg-circle2"></div>
 
   <div class="hero-content">
-    <div class="hero-tag">Available for Opportunities</div>
+    <div class="hero-tag">Open to Work for Opportunities</div>
     <h1 class="hero-name">Sangili<br><span>Saravana</span></h1>
-    <p class="hero-role">Computer Science Engineer</p>
+    <p class="hero-role">Aspiring Network Engineer</p>
     <p class="hero-summary">
       Motivated and detail-oriented individual with strong problem-solving abilities and a commitment to continuous learning. Skilled in IT recruitment, networking, and AI-driven systems development.
     </p>
     <div class="hero-ctas">
       <a href="#contact" class="btn-primary">Get in Touch →</a>
+      <a href="RESUME OF SANGILI SARAVANA M.docx" class="btn-secondary" download>View Resume</a>
       <a href="#projects" class="btn-secondary">View Projects</a>
     </div>
   </div>
 
-  <!-- HERO IMAGE -->
   <div class="hero-image-wrapper">
     <div class="hero-image-backdrop"></div>
-    <img src="profile.jpeg" class="hero-image">
+    <img src="profile.jpeg" alt="Sangili Saravana" class="hero-image">
   </div>
 </section>
 
@@ -842,66 +866,41 @@
   <div class="section-header">
     <span class="section-num"></span>
     <h2 class="section-title">Skills</h2>
-
   </div>
 
   <div class="skills-grid">
-    <div class="skill-card glass-card">
-      <div class="skill-icon">🌐</div>
-      <div class="skill-name">Networking &amp; Infrastructure</div>
-      <div class="skill-tags">
-        <span class="tag">Hardware</span>
-        <span class="tag">Networking</span>
-        <span class="tag">VMware</span>
-        <span class="tag">Windows Server</span>
-        <span class="tag">Linux</span>
-        <span class="tag">CCNA</span>
-        <span class="tag">CCNP</span>
-      </div>
+    <div class="glass-card skill-item">
+      <img src="https://cdn-icons-png.flaticon.com/128/5968/5968350.png" alt="Python">
+      <h3>Python</h3>
+      <p>Scripting, Automation & AI Development.</p>
     </div>
-    <div class="skill-card glass-card">
-      <div class="skill-icon">🛠</div>
-      <div class="skill-name">Technical Tools</div>
-      <div class="skill-tags">
-        <span class="tag">Troubleshooting</span>
-        <span class="tag">Microsoft Office</span>
-        <span class="tag">Full Stack Web Dev</span>
-        <span class="tag">Machine Learning</span>
-        <span class="tag">Computer Vision</span>
-      </div>
+
+    <div class="glass-card skill-item">
+      <img src="OIP.webp" alt="VMware">
+      <h3>VMware</h3>
+      <p>Virtualization & Cloud Infrastructure.</p>
     </div>
-    <div class="skill-card glass-card">
-      <div class="skill-icon">🤝</div>
-      <div class="skill-name">Soft Skills</div>
-      <div class="skill-tags">
-        <span class="tag">Communication</span>
-        <span class="tag">Logical Thinking</span>
-        <span class="tag">Leadership</span>
-        <span class="tag">Teamwork</span>
-        <span class="tag">Time Management</span>
-        <span class="tag">Decision-Making</span>
-      </div>
+
+    <div class="glass-card skill-item">
+      <img src="free-cisco-icon-svg-download-png-282320.webp" alt="Cisco Networking">
+      <h3>Cisco Networking</h3>
+      <p>CCNA, CCNP & Network Infrastructure.</p>
     </div>
-    <div class="skill-card glass-card">
-      <div class="skill-icon">🔐</div>
-      <div class="skill-name">Cyber Security</div>
-      <div class="skill-tags">
-        <span class="tag">Cyber Security</span>
-        <span class="tag">Networking Security</span>
-        <span class="tag">SYSTECH Certified</span>
-      </div>
+
+    <div class="glass-card skill-item">
+      <img src="global-network-connection-technology-communication-and-data-vector.webp" alt="Hardware & Networking">
+      <h3>Network Systems</h3>
+      <p>Physical Hardware & Connectivity Solutions.</p>
     </div>
   </div>
 </section>
 
 <div class="section-divider"></div>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="section-header">
     <span class="section-num"></span>
     <h2 class="section-title">Projects</h2>
-
   </div>
 
   <div class="projects-grid">
@@ -939,12 +938,10 @@
 
 <div class="section-divider"></div>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-header">
     <span class="section-num"></span>
     <h2 class="section-title">Experience</h2>
-
   </div>
 
   <div class="exp-block glass-card">
@@ -975,7 +972,6 @@
 
 <div class="section-divider"></div>
 
-<!-- EDUCATION -->
 <section id="education">
   <div class="section-header">
     <span class="section-num"></span>
@@ -1006,7 +1002,6 @@
 
 <div class="section-divider"></div>
 
-<!-- CERTIFICATIONS -->
 <section>
   <div class="section-header">
     <span class="section-num"></span>
@@ -1016,30 +1011,37 @@
   <div class="cert-list">
     <div class="cert-item glass-card">
       <div class="cert-icon">🔐</div>
-      <div>
+      <div class="cert-content">
         <div class="cert-name">Cyber Security and Networking</div>
         <div class="cert-org">SYSTECH, Trichy — Pursuing</div>
+        <a href="#" target="_blank" class="btn-cert">View Certificate →</a>
       </div>
     </div>
+
     <div class="cert-item glass-card">
       <div class="cert-icon">💻</div>
-      <div>
+      <div class="cert-content">
         <div class="cert-name">Full Stack Web Development — Internship Certificate</div>
         <div class="cert-org">Prodigy Infotech</div>
+        <a href="#" target="_blank" class="btn-cert">View Certificate →</a>
       </div>
     </div>
+
     <div class="cert-item glass-card">
       <div class="cert-icon">📄</div>
-      <div>
+      <div class="cert-content">
         <div class="cert-name">Research Paper — Face Recognition &amp; Distraction Detection</div>
         <div class="cert-org">Published in IJSART Journal</div>
+        <a href="#" target="_blank" class="btn-cert">View Certificate →</a>
       </div>
     </div>
+
     <div class="cert-item glass-card">
       <div class="cert-icon">📊</div>
-      <div>
+      <div class="cert-content">
         <div class="cert-name">Applied Data Science</div>
         <div class="cert-org">Naan Mudhalvan Programme</div>
+        <a href="#" target="_blank" class="btn-cert">View Certificate →</a>
       </div>
     </div>
   </div>
@@ -1047,10 +1049,6 @@
 
 <div class="section-divider"></div>
 
-
-<div class="section-divider"></div>
-
-<!-- CONTACT -->
 <section id="contact">
   <div class="contact-wrap">
     <div>
@@ -1060,7 +1058,7 @@
         Open to new opportunities in Network engineer, System Engineer, System administrator, L1 support engineer, Support engineer roles. Let's build something great together.
       </p>
 
-      <div class="contact-links" style="gap: 1rem;">
+      <div class="contact-links">
         <a href="mailto:mssaravana@gmail.com" class="contact-link glass-card">
           <div class="contact-link-icon">✉</div>
           <div class="contact-link-text">
@@ -1100,14 +1098,14 @@
         <button type="submit" class="btn-primary form-submit">Send Message →</button>
       </form>
     </div>
-
   </div>
 </section>
 
 <footer>
+
   <span>© 2025 Sangili Saravana M. All rights reserved.</span>
   <div class="footer-logo"></div>
 </footer>
-
+<a href="#Home" class="back-to-top">↑</a>
 </body>
 </html>
