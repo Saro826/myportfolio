@@ -274,22 +274,13 @@
     box-shadow: 0 30px 60px rgba(0,0,0,0.15);
   }
 
-  /* ===== RESPONSIVE: LAPTOP (max-width: 1024px) ===== */
+  /* RESPONSIVE SIZES */
   @media (max-width: 1024px) {
-    .hero {
-      padding: 7rem 2.5rem 5rem;
-      gap: 2rem;
-    }
-    .hero-image-wrapper {
-      margin-right: 1rem;
-      width: 320px;
-      height: 320px;
-      flex-shrink: 0;
-    }
-    .hero-name { font-size: clamp(3rem, 6vw, 5rem); }
-    section { padding: 5rem 2.5rem; }
-    .section-divider { margin: 0 2.5rem; }
-    .contact-wrap { gap: 2.5rem; }
+    .hero-image-wrapper { margin-right: 1rem; width: 320px; height: 320px; }
+  }
+
+  @media (max-width: 768px) {
+    .hero-image-wrapper { margin-top: 4rem; margin-right: 0; width: 280px; height: 280px; }
   }
 
   /* SECTIONS */
@@ -777,140 +768,33 @@
 
 
 
-  /* ===== RESPONSIVE: MOBILE (max-width: 768px) ===== */
-@media (max-width: 600px) {
-  .hero-content {
-    padding: 0 1rem;
-    text-align: center;
+  @media (max-width: 768px) {
+  .hero {
+    padding: 6rem 1.5rem 4rem; /* Reduce padding for more content space */
   }
 
-  .skills-grid, .projects-grid, .edu-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .exp-block {
-    grid-template-columns: 1fr !important;
-    padding: 1rem !important;
-  }
-
-  .contact-wrap {
-    padding: 0 0.5rem;
-  }
-
-  .btn-primary, .btn-secondary {
-    width: 100%;
-    justify-content: center;
+  .hero-name {
+    font-size: clamp(2.5rem, 10vw, 4rem); /* Responsive font size */
     margin-bottom: 0.5rem;
+  }
+
+  .hero-content {
+    width: 100%;
   }
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-} {
-
-    /* NAV — hamburger-free scrollable pill row */
-    nav {
-      padding: 0.75rem 1rem;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .nav-links {
-      gap: 0.35rem;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      padding-bottom: 2px;
-    }
-    .nav-links::-webkit-scrollbar { display: none; }
-    .nav-links a {
-      font-size: 0.65rem;
-      padding: 0.45rem 0.85rem;
-      white-space: nowrap;
-      border-radius: 10px;
-    }
-
-    /* HERO — stack vertically */
-    .hero {
-      flex-direction: column-reverse;
-      align-items: center;
-      text-align: center;
-      padding: 6rem 1.25rem 3.5rem;
-      min-height: auto;
-      gap: 2rem;
-    }
-    .hero-bg-line,
-    .hero-bg-circle,
-    .hero-bg-circle2 { display: none; }
-
-    .hero-content {
-      max-width: 100%;
-    }
-    .hero-tag { font-size: 0.65rem; }
-    .hero-name {
-      font-size: clamp(2.8rem, 11vw, 4rem);
-      margin-bottom: 0.6rem;
-    }
-    .hero-role { font-size: 1rem; }
-    .hero-summary { font-size: 0.92rem; max-width: 100%; }
-    .hero-ctas {
-      justify-content: center;
-    }
-
     .hero-image-wrapper {
-      margin-top: 0;
+      margin-top: 4rem;
       margin-right: 0;
-      width: 220px;
-      height: 220px;
+      width: 100%;
+      max-width: 320px;
     }
 
-    /* SECTIONS */
-    section { padding: 3.5rem 1.25rem; }
-    .section-title { font-size: 1.8rem; }
-    .section-divider { margin: 0 1.25rem; }
-
-    /* SKILLS */
-    .skills-grid { grid-template-columns: 1fr; gap: 1rem; }
-
-    /* PROJECTS */
-    .projects-grid { grid-template-columns: 1fr; gap: 1.25rem; }
-    .project-card { padding: 1.75rem; }
-    .project-title { font-size: 1.2rem; }
-
-    /* EXPERIENCE */
-    .exp-block {
-      grid-template-columns: 1fr;
-      gap: 0.75rem;
-      padding: 1.5rem;
-    }
-    .exp-role { font-size: 1.2rem; }
-
-    /* EDUCATION */
-    .edu-grid { grid-template-columns: 1fr; gap: 1rem; }
-
-    /* CERTIFICATIONS */
-    .cert-list { grid-template-columns: 1fr; gap: 1rem; }
-    .cert-item { padding: 1.5rem; }
-
-    /* CONTACT */
-    .contact-wrap {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    .contact-heading { font-size: 2.5rem; }
-    .contact-form { padding: 1.5rem; }
-
-    /* FOOTER */
-    footer {
-      padding: 1.25rem 1.25rem;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-  }
-
-  </style>
+    .exp-block { grid-template-columns: 1fr; gap: 1rem; }
+    .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; }
+    .section-divider { margin: 0 1.5rem; }
+</style>
 </head>
 <body>
 
@@ -958,40 +842,58 @@ img {
   <div class="section-header">
     <span class="section-num"></span>
     <h2 class="section-title">Skills</h2>
+
   </div>
 
-  <div class="skills-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-
-    <!-- Python -->
-    <div class="glass-card" style="padding: 2.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.3);">
-      <img src="https://cdn-icons-png.flaticon.com/128/5968/5968350.png" alt="Python" style="width: 80px; height: 80px; margin-bottom: 1.5rem; border-radius: 10px;">
-      <h3 style="margin-bottom: 0.5rem; color: var(--accent);">Python</h3>
-      <p style="font-size: 0.9rem; color: var(--muted);">Scripting, Automation & AI Development.</p>
+  <div class="skills-grid">
+    <div class="skill-card glass-card">
+      <div class="skill-icon">🌐</div>
+      <div class="skill-name">Networking &amp; Infrastructure</div>
+      <div class="skill-tags">
+        <span class="tag">Hardware</span>
+        <span class="tag">Networking</span>
+        <span class="tag">VMware</span>
+        <span class="tag">Windows Server</span>
+        <span class="tag">Linux</span>
+        <span class="tag">CCNA</span>
+        <span class="tag">CCNP</span>
+      </div>
     </div>
-
-    <!-- VMware -->
-    <div class="glass-card" style="padding: 2.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.3);">
-      <img src="OIP.webp" alt="VMware" style="width: 80px; height: 80px; margin-bottom: 1.5rem; border-radius: 10px;">
-      <h3 style="margin-bottom: 0.5rem; color: var(--accent);">VMware</h3>
-      <p style="font-size: 0.9rem; color: var(--muted);">Virtualization & Cloud Infrastructure.</p>
+    <div class="skill-card glass-card">
+      <div class="skill-icon">🛠</div>
+      <div class="skill-name">Technical Tools</div>
+      <div class="skill-tags">
+        <span class="tag">Troubleshooting</span>
+        <span class="tag">Microsoft Office</span>
+        <span class="tag">Full Stack Web Dev</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Computer Vision</span>
+      </div>
     </div>
-
-    <!-- Cisco Networking -->
-    <div class="glass-card" style="padding: 2.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.3);">
-      <img src="free-cisco-icon-svg-download-png-282320.webp" alt="Cisco Networking" style="width: 80px; height: 80px; margin-bottom: 1.5rem; border-radius: 10px;">
-      <h3 style="margin-bottom: 0.5rem; color: var(--accent);">Cisco Networking</h3>
-      <p style="font-size: 0.9rem; color: var(--muted);">CCNA, CCNP & Network Infrastructure.</p>
+    <div class="skill-card glass-card">
+      <div class="skill-icon">🤝</div>
+      <div class="skill-name">Soft Skills</div>
+      <div class="skill-tags">
+        <span class="tag">Communication</span>
+        <span class="tag">Logical Thinking</span>
+        <span class="tag">Leadership</span>
+        <span class="tag">Teamwork</span>
+        <span class="tag">Time Management</span>
+        <span class="tag">Decision-Making</span>
+      </div>
     </div>
-
-    <!-- Hardware & Networking -->
-    <div class="glass-card" style="padding: 2.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.3);">
-      <img src="global-network-connection-technology-communication-and-data-vector.webp" alt="Hardware & Networking" style="width: 80px; height: 80px; margin-bottom: 1.5rem; border-radius: 10px;">
-      <h3 style="margin-bottom: 0.5rem; color: var(--accent);">Network Systems</h3>
-      <p style="font-size: 0.9rem; color: var(--muted);">Physical Hardware & Connectivity Solutions.</p>
+    <div class="skill-card glass-card">
+      <div class="skill-icon">🔐</div>
+      <div class="skill-name">Cyber Security</div>
+      <div class="skill-tags">
+        <span class="tag">Cyber Security</span>
+        <span class="tag">Networking Security</span>
+        <span class="tag">SYSTECH Certified</span>
+      </div>
     </div>
-
   </div>
 </section>
+
 <div class="section-divider"></div>
 
 <!-- PROJECTS -->
