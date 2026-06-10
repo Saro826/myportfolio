@@ -1,4 +1,3 @@
-// 1. முதல்ல HTML-ல இருக்குற ஃபார்மை செலக்ட் பண்றோம்
 const form = document.querySelector('.contact-form');
 
 form.addEventListener('submit', function(e) {
