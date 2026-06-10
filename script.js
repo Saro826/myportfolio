@@ -1,8 +1,7 @@
 const form = document.querySelector('.contact-form');
 
 form.addEventListener('submit', function(e) {
-    e.preventDefault(); // ஃபார்ம் சப்மிட் ஆகும்போது பேஜ் ரீலோடு ஆகாம தடுக்குது
-
+    e.preventDefault();
     const formData = new FormData(form);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
@@ -28,4 +27,33 @@ form.addEventListener('submit', function(e) {
         console.log(error);
         alert("Something went wrong!");
     });
-});
+}); // <-- Notice this bracket! This closes the form code.
+
+
+// --- Theme Toggle Logic (Now safely outside the form code) ---
+const themeToggle = document.getElementById('theme-toggle');
+
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    if (themeToggle) {
+        themeToggle.textContent = '☀️';
+    }
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+
+        let theme = 'light';
+        if (document.body.classList.contains('dark-mode')) {
+            theme = 'dark';
+            themeToggle.textContent = '☀️';
+        } else {
+            themeToggle.textContent = '🌙';
+        }
+
+        localStorage.setItem('theme', theme);
+    });
+}
