@@ -65,19 +65,22 @@
 const revealOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.15 // Triggers when 15% of the card is visible on screen
+    threshold: 0.1 // Triggers earlier so it works great on mobile screens
 };
 
-const scrollObserver = new IntersectionObserver((entries, observer) => {
+const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            // Adds the animation when scrolling down
             entry.target.classList.add('active');
-            observer.unobserve(entry.target);
+        } else {
+            // Removes the animation when you scroll away, so it can play again!
+            entry.target.classList.remove('active');
         }
     });
 }, revealOptions);
 
-// Automatically apply the reveal animation to all your glass cards
+// Automatically apply the reveal animation to all cards
 document.querySelectorAll('.glass-card').forEach((card) => {
     card.classList.add('reveal-item');
     scrollObserver.observe(card);
@@ -86,13 +89,13 @@ document.querySelectorAll('.glass-card').forEach((card) => {
 // Automatically apply the slide-in effect to all section headers
 document.querySelectorAll('.section-header').forEach((header) => {
     header.classList.add('reveal-left');
-    scrollObserver.observe(header); // Reuses the observer we created earlier
+    scrollObserver.observe(header);
 });
 
 // Automatically apply the line drawing effect to all section dividers
 document.querySelectorAll('.section-divider').forEach((divider) => {
     divider.classList.add('reveal-scale');
-    scrollObserver.observe(divider); // Reuses the observer we created earlier
+    scrollObserver.observe(divider);
 });
 
 // =========================================
