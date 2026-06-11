@@ -953,7 +953,7 @@ html { scroll-behavior: smooth; }
 
 /* 8. STICKY NAVBAR ANIMATION */
 nav.scrolled {
-  position: fixed; /* This makes it follow you when scrolling */
+  position: absolute; /* This makes it follow you when scrolling */
   top: 0;
   width: 100%;
   z-index: 1000;
