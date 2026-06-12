@@ -43,9 +43,17 @@
     </div>
   </div>
 
-  <div class="hero-image-wrapper">
+<div class="hero-image-wrapper">
     <div class="hero-image-backdrop"></div>
     <img src="profile12.png" alt="Sangili Saravana" class="hero-image">
+
+    <!-- Puthu Floating Motion Cards -->
+    <div class="hero-badge badge-1 glass-card">
+      <span style="font-size: 1.2rem;">⚡</span> Python & AI
+    </div>
+    <div class="hero-badge badge-2 glass-card">
+      <span style="font-size: 1.2rem;">🌐</span> Networking and Cybersecurity
+    </div>
   </div>
 </section>
 
@@ -53,48 +61,94 @@
 
 <section id="skills">
   <div class="section-header">
-    <span class="section-num"></span>
-    <h2 class="section-title">Skills</h2>
+    <span class="section-num">Technical Skills</span>
+    <div class="section-title-row">
+      <h2 class="section-title">Skills</h2>
+      <div class="section-title-line"></div>
+    </div>
   </div>
 
   <div class="skills-grid">
     <div class="glass-card skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/128/5968/5968350.png" alt="Python">
+      <div class="skill-icon-wrap">
+        <img src="global-network-connection-technology-communication-and-data-vector.webp" alt="Hardware & Networking">
+      </div>
+      <h3>Hardware & Network Troubleshoot</h3>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level: 88%"></div></div>
+    </div>
+    <div class="glass-card skill-item">
+      <div class="skill-icon-wrap">
+        <img src="ws.webp" alt="Windows Server">
+      </div>
+      <h3>Windows Server</h3>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level: 80%"></div></div>
+    </div>
+    <div class="glass-card skill-item">
+      <div class="skill-icon-wrap">
+        <img src="https://cdn-icons-png.flaticon.com/128/5968/5968350.png" alt="Python">
+      </div>
       <h3>Python</h3>
-      <p>Scripting, Automation & AI Development.</p>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level: 75%"></div></div>
     </div>
-
     <div class="glass-card skill-item">
-      <img src="OIP.webp" alt="VMware">
+      <div class="skill-icon-wrap">
+        <img src="2030089.jpg" alt="CCNA">
+      </div>
+      <h3>CCNA Routing & Switching</h3>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level: 90%"></div></div>
+    </div>
+    <div class="glass-card skill-item">
+      <div class="skill-icon-wrap">
+        <img src="2030052.jpg" alt="CCNP">
+      </div>
+      <h3>CCNP Routing & Switching</h3>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level: 72%"></div></div>
+    </div>
+    <div class="glass-card skill-item">
+      <div class="skill-icon-wrap">
+        <img src="cyber.webp" alt="Cyber Security">
+      </div>
+      <h3>Cyber Security</h3>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level: 82%"></div></div>
+    </div>
+    <div class="glass-card skill-item">
+      <div class="skill-icon-wrap">
+        <img src="et.jpg" alt="Ethical Hacking">
+      </div>
+      <h3>Ethical Hacking</h3>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level: 70%"></div></div>
+    </div>
+    <div class="glass-card skill-item">
+      <div class="skill-icon-wrap">
+        <img src="OIP.webp" alt="VMware">
+      </div>
       <h3>VMware</h3>
-      <p>Virtualization & Cloud Infrastructure.</p>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level: 78%"></div></div>
     </div>
-
     <div class="glass-card skill-item">
-      <img src="free-cisco-icon-svg-download-png-282320.webp" alt="Cisco Networking">
-      <h3>Cisco Networking</h3>
-      <p>CCNA, CCNP & Network Infrastructure.</p>
-    </div>
-
-    <div class="glass-card skill-item">
-      <img src="global-network-connection-technology-communication-and-data-vector.webp" alt="Hardware & Networking">
-      <h3>Network Systems</h3>
-      <p>Physical Hardware & Connectivity Solutions.</p>
+      <div class="skill-icon-wrap">
+        <img src="cisco-packet-tracer-labs-ipcisco.com_-1.png" alt="Packet Tracer">
+      </div>
+      <h3>CISCO Packet Tracer</h3>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level: 92%"></div></div>
     </div>
   </div>
+
 </section>
 
 <div class="section-divider"></div>
 
 <section id="projects">
   <div class="section-header">
-    <span class="section-num"></span>
-    <h2 class="section-title">Projects</h2>
+    <span class="section-num">What I've Built</span>
+    <div class="section-title-row">
+      <h2 class="section-title">Projects</h2>
+      <div class="section-title-line"></div>
+    </div>
   </div>
 
   <div class="projects-grid">
-    <div class="project-card glass-card">
-      <div class="project-num">Project 01 — Final Year</div>
+    <div class="project-card glass-card" data-num="01">
       <div class="project-title">Enhancing Automotive Face Recognition &amp; Distraction Detection System</div>
       <p class="project-desc">
         Developed an AI-based system to monitor driver drowsiness and distraction in real-time using computer vision. Implemented face and eye detection models to analyze driver behavior through live video processing. Integrated alert mechanisms to improve road safety and reduce accident risks. Research paper published to IJSART.
@@ -108,8 +162,7 @@
       </div>
     </div>
 
-    <div class="project-card glass-card">
-      <div class="project-num">Project 02 — ML</div>
+    <div class="project-card glass-card" data-num="02">
       <div class="project-title">Future Sales Prediction</div>
       <p class="project-desc">
         Built a machine learning model to forecast future sales from historical data and market trends. Performed data preprocessing, feature engineering, and exploratory data analysis to boost prediction accuracy. Implemented regression algorithms to build and evaluate the predictive model, enabling data-driven decisions for inventory planning and revenue optimization.
@@ -129,8 +182,11 @@
 
 <section id="experience">
   <div class="section-header">
-    <span class="section-num"></span>
-    <h2 class="section-title">Experience</h2>
+    <span class="section-num">Work History</span>
+    <div class="section-title-row">
+      <h2 class="section-title">Experience</h2>
+      <div class="section-title-line"></div>
+    </div>
   </div>
 
   <div class="exp-block glass-card">
@@ -163,8 +219,11 @@
 
 <section id="education">
   <div class="section-header">
-    <span class="section-num"></span>
-    <h2 class="section-title">Education</h2>
+    <span class="section-num">Academic Background</span>
+    <div class="section-title-row">
+      <h2 class="section-title">Education</h2>
+      <div class="section-title-line"></div>
+    </div>
   </div>
 
   <div class="edu-grid">
@@ -193,8 +252,11 @@
 
 <section>
   <div class="section-header">
-    <span class="section-num"></span>
-    <h2 class="section-title">Certifications</h2>
+    <span class="section-num">Achievements</span>
+    <div class="section-title-row">
+      <h2 class="section-title">Certifications</h2>
+      <div class="section-title-line"></div>
+    </div>
   </div>
 
   <div class="cert-list">
@@ -241,7 +303,7 @@
 <section id="contact">
   <div class="contact-wrap">
     <div>
-      <div class="section-num" style="margin-bottom:1rem;"></div>
+      <span class="section-num" style="margin-bottom:1rem;">Get In Touch</span>
       <h2 class="contact-heading">Let's<br><span>Connect</span></h2>
       <p style="font-size:0.95rem; color:var(--text); max-width:380px; line-height:1.6; margin-bottom: 2.5rem;">
         Open to new opportunities in Network engineer, System Engineer, System administrator, L1 support engineer, Support engineer roles. Let's build something great together.
@@ -285,7 +347,7 @@
     <textarea id="message" name="message" class="form-input" placeholder="Hello, I would like to discuss..." required></textarea>
   </div>
 
-  <button type="submit" class="btn-primary form-submit">Send Message →</button>
+  <button type="submit" class="btn-primary form-submit">Send Message</button>
 </form>
     </div>
   </div>
