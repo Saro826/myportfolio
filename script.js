@@ -1,5 +1,7 @@
-    const form = document.querySelector('.contact-form');
+const form = document.querySelector('.contact-form');
 
+// Form intha page-la iruntha mattum intha action run aaganum nu check pandrom
+if (form) {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         const formData = new FormData(form);
@@ -27,9 +29,8 @@
             console.log(error);
             alert("Something went wrong!");
         });
-    }); // <-- Notice this bracket! This closes the form code.
-
-
+    });
+}
     // --- Theme Toggle Logic (Now safely outside the form code) ---
     const themeToggle = document.getElementById('theme-toggle');
 
@@ -59,43 +60,53 @@
     }
 
 // =========================================
-// NEW ANIMATIONS - SCROLL REVEAL
+// 3. PREMIUM MOTION ANIMATIONS (STAGGERED)
 // =========================================
-
-const revealOptions = {
+const motionOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0// Triggers earlier so it works great on mobile screens
+    threshold: 0.1 // 10% card therinjalum animation start aagidum
 };
 
-const scrollObserver = new IntersectionObserver((entries) => {
+const motionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // Adds the animation when scrolling down
             entry.target.classList.add('active');
         } else {
-            // Removes the animation when you scroll away, so it can play again!
+            // Scroll panni mela pogum pothu thirumba hide aagidum (repeat aaga)
             entry.target.classList.remove('active');
         }
     });
-}, revealOptions);
+}, motionOptions);
 
-// Automatically apply the reveal animation to all cards
-document.querySelectorAll('.glass-card').forEach((card) => {
-    card.classList.add('reveal-item');
-    scrollObserver.observe(card);
+// Grid-kulla irukka cards-ah kandupudichu, onnu pinnaadi onna (delay) varamaari set pandrom
+document.querySelectorAll('.skills-grid, .projects-grid, .edu-grid, .cert-list').forEach(grid => {
+    const cards = grid.querySelectorAll('.glass-card');
+
+    cards.forEach((card, index) => {
+        card.classList.add('motion-card');
+        // Ovvoru card-kum 150ms delay set pandrom (1st card odane varum, 2nd card konjam late-a varum)
+        card.style.transitionDelay = `${index * 150}ms`;
+        motionObserver.observe(card);
+    });
 });
 
-// Automatically apply the slide-in effect to all section headers
+// Headers matrum dividers-ku normal slide animation
 document.querySelectorAll('.section-header').forEach((header) => {
     header.classList.add('reveal-left');
-    scrollObserver.observe(header);
+    motionObserver.observe(header);
 });
 
-// Automatically apply the line drawing effect to all section dividers
 document.querySelectorAll('.section-divider').forEach((divider) => {
     divider.classList.add('reveal-scale');
-    scrollObserver.observe(divider);
+    motionObserver.observe(divider);
+});
+
+// Single glass cards (like Experience blocks)
+document.querySelectorAll('.exp-block, .contact-link, .contact-form').forEach((block) => {
+    block.classList.add('motion-card');
+    block.style.transitionDelay = '100ms';
+    motionObserver.observe(block);
 });
 
 // =========================================
@@ -121,7 +132,6 @@ let textArrayIndex = 0;
 let charIndex = 0;
 
 const typedTextSpan = document.getElementById("typewriter-text");
-
 function type() {
   if (charIndex < textArray[textArrayIndex].length) {
     typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
@@ -131,7 +141,6 @@ function type() {
     setTimeout(erase, newTextDelay);
   }
 }
-
 function erase() {
   if (charIndex > 0) {
     typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
@@ -143,7 +152,6 @@ function erase() {
     setTimeout(type, typingDelay + 1100);
   }
 }
-
 document.addEventListener("DOMContentLoaded", function() {
   if(textArray.length) setTimeout(type, newTextDelay + 250);
 });
